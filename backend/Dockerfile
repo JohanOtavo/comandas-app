@@ -3,6 +3,7 @@ FROM node:20-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
+ENV DATABASE_URL=postgresql://postgres:postgres@localhost:5432/comandas_db?schema=public
 
 COPY package*.json ./
 COPY prisma ./prisma
