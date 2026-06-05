@@ -16,11 +16,16 @@ if (process.env.NODE_ENV !== 'test') {
   app.use(morgan('dev'));
 }
 
-app.get('/health', (req, res) => {
-  res.json({ ok: true, message: 'API de comandas funcionando' });
-});
+const basePath = process.env.BASE_PATH || '/comandas';
 
+function healthHandler(req, res) {
+  res.json({ ok: true, message: 'API de comandas funcionando' });
+}
+
+app.get('/health', healthHandler);
+app.get(`${basePath}/health`, healthHandler);
 app.use('/api', routes);
+app.use(`${basePath}/api`, routes);
 app.use(notFound);
 app.use(errorHandler);
 
