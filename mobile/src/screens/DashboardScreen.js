@@ -7,7 +7,6 @@ import LoadingState from '../components/LoadingState';
 import Row from '../components/Row';
 import Screen from '../components/Screen';
 import StatusBadge from '../components/StatusBadge';
-import { useApiConfig } from '../context/ApiConfigContext';
 import { getErrorMessage } from '../services/api';
 import { cashRegisterService } from '../services/cashRegisterService';
 import { orderService } from '../services/orderService';
@@ -21,22 +20,16 @@ const quickActions = [
   { title: 'Crear comanda', icon: 'add-circle-outline', route: 'CreateOrder', color: colors.warning },
   { title: 'Abiertas', icon: 'receipt-outline', route: 'OpenOrders', color: colors.primaryDark },
   { title: 'Pagadas', icon: 'checkmark-done-outline', route: 'PaidOrders', color: colors.success },
-  { title: 'Eliminadas', icon: 'trash-outline', route: 'DeletedOrders', color: colors.danger },
-  { title: 'Conexion', icon: 'server-outline', route: 'Connection', color: colors.ink }
+  { title: 'Eliminadas', icon: 'trash-outline', route: 'DeletedOrders', color: colors.danger }
 ];
 
 export default function DashboardScreen({ navigation }) {
-  const { apiBaseUrl, isApiConfigReady } = useApiConfig();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [cashRegister, setCashRegister] = useState(null);
   const [openOrders, setOpenOrders] = useState([]);
 
   const load = useCallback(async () => {
-    if (!isApiConfigReady) {
-      return;
-    }
-
     try {
       setError('');
       setLoading(true);
@@ -51,7 +44,7 @@ export default function DashboardScreen({ navigation }) {
     } finally {
       setLoading(false);
     }
-  }, [isApiConfigReady]);
+  }, []);
 
   useFocusEffect(
     useCallback(() => {
@@ -91,7 +84,6 @@ export default function DashboardScreen({ navigation }) {
             strong
           />
           <Row label="Comandas abiertas" value={openOrders.length} />
-          <Row label="API" value={apiBaseUrl.replace('/api', '')} />
         </Card>
 
         <View style={styles.grid}>

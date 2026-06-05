@@ -9,7 +9,6 @@ import OrderDetailScreen from '../screens/OrderDetailScreen';
 import AddOrderItemScreen from '../screens/AddOrderItemScreen';
 import PaidOrdersScreen from '../screens/PaidOrdersScreen';
 import DeletedOrdersScreen from '../screens/DeletedOrdersScreen';
-import ConnectionScreen from '../screens/ConnectionScreen';
 import { colors } from '../styles/theme';
 
 const Stack = createNativeStackNavigator();
@@ -34,7 +33,6 @@ export default function AppNavigator() {
       <Stack.Screen name="AddOrderItem" component={AddOrderItemScreen} options={{ title: 'Agregar producto' }} />
       <Stack.Screen name="PaidOrders" component={PaidOrdersScreen} options={{ title: 'Comandas pagadas' }} />
       <Stack.Screen name="DeletedOrders" component={DeletedOrdersScreen} options={{ title: 'Comandas eliminadas' }} />
-      <Stack.Screen name="Connection" component={ConnectionScreen} options={{ title: 'Conexion' }} />
     </Stack.Navigator>
   );
 }
