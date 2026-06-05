@@ -15,13 +15,19 @@
     "ios": {
       "supportsTablet": true
     },
-    "android": {},
+    "android": {
+      "package": "com.johanotavo.comandas"
+    },
     "extra": {
-      "apiUrlNote": "Configura EXPO_PUBLIC_API_URL para apuntar al backend."
+      "apiUrlNote": "Configura EXPO_PUBLIC_API_URL para apuntar al backend.",
+      "eas": {
+        "projectId": "b32eb509-a8b1-4103-b030-815ad1ba46a8"
+      }
     },
     "plugins": [
       "expo-asset",
       "expo-font"
-    ]
+    ],
+    "owner": "reyjohan"
   }
 }
