@@ -5,13 +5,13 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV DATABASE_URL=postgresql://postgres:postgres@localhost:5432/comandas_db?schema=public
 
-COPY package*.json ./
-COPY prisma ./prisma
+COPY backend/package*.json ./
+COPY backend/prisma ./prisma
 
 RUN npm ci --omit=dev
 RUN npx prisma generate
 
-COPY src ./src
+COPY backend/src ./src
 
 EXPOSE 3000
 
