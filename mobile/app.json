@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Comandas",
+    "slug": "comandas-mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F8FA"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {},
+    "extra": {
+      "apiUrlNote": "Configura EXPO_PUBLIC_API_URL para apuntar al backend."
+    },
+    "plugins": [
+      "expo-asset",
+      "expo-font"
+    ]
+  }
+}
